@@ -1,6 +1,8 @@
-version: '3.5'
+version: '3.7'
+
 services:
-  mongodb:
+  mongo1.dev:
+    container_name: mongo1.dev
     image: mongo:6.0.2
     restart: always
     #descomentar para ativar a autenticacao
@@ -9,8 +11,25 @@ services:
 #      MONGO_INITDB_ROOT_PASSWORD: pass
     ports:
       - 27017:27017
+    command: sh /migration/run-migrations-mongosh-on-container.sh
     volumes:
       - mongodb_data:/data/db
+
+#  migrations:
+#    image: mongo:6.0.2
+#    container_name: migrations
+#    entrypoint: "/migration/run-migrations-mongosh-on-container.sh"
+#    networks:
+#      - study
+#    depends_on:
+#      - mongo1.dev
+#    volumes:
+#      - ./migration/run-migrations-mongosh-on-container.sh:/migration/run-migrations-mongosh-on-container.sh
+#      - ../migration/:/migration
+
+#networks:
+#  study:
+#    external: true
 
 volumes:
   mongodb_data:
