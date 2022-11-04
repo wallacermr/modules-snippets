@@ -6,7 +6,8 @@
 
 	<modules>
         <module>mongodb-pagination</module>
-    </modules>
+		<module>sample-kafka-producer</module>
+	</modules>
 
 	<parent>
 		<groupId>org.springframework.boot</groupId>
