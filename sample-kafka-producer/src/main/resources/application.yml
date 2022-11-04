@@ -1,6 +1,7 @@
 server:
   port: 8082
 
+#Descomentar para o tipo de producer and consumer usando suppliers
 #spring:
 #  cloud:
 #    stream:
@@ -39,7 +40,7 @@ server:
 spring:
   cloud:
     stream:
-      #mesmo nome do binding-out
+      #primeiro nome do binding
       source: orderBuy
       kafka:
         binder:
