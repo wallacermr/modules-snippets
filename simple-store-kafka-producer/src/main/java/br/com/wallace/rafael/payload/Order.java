@@ -1,4 +1,4 @@
-package br.com.wallace.rafael;
+package br.com.wallace.rafael.payload;
 
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;

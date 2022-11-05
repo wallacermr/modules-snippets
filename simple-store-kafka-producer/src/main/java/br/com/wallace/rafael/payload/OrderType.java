@@ -1,4 +1,4 @@
-package br.com.wallace.rafael;
+package br.com.wallace.rafael.payload;
 
 public enum OrderType {
     SELL,

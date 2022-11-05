@@ -1,5 +1,7 @@
 package br.com.wallace.rafael;
 
+import br.com.wallace.rafael.payload.Order;
+import br.com.wallace.rafael.payload.OrderType;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
