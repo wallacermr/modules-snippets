@@ -1,0 +1,22 @@
+spring:
+  cloud:
+    stream:
+      #primeiro nome do binding
+      source: ordersbuy;orderssell
+      kafka:
+        binder:
+          brokers: localhost:9092
+          replicationFactor: 1
+      bindings:
+        ordersbuy-out-0:
+          destination: orders_buy
+          contentType: application/json
+          producer:
+            configuration:
+              partitionCount: 1
+        orderssell-out-0:
+          destination: orders_sell
+          contentType: application/json
+          producer:
+            configuration:
+              partitionCount: 1

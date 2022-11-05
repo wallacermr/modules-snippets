@@ -5,26 +5,14 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>br.com.wallace.rafael</groupId>
-  <artifactId>sample-kafka-producer</artifactId>
+  <artifactId>simple-store-kafka-producer</artifactId>
   <version>0.0.1-SNAPSHOT</version>
-  <build>
-    <plugins>
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-compiler-plugin</artifactId>
-        <configuration>
-          <source>8</source>
-          <target>8</target>
-        </configuration>
-      </plugin>
-    </plugins>
-  </build>
-
-  <name>sample-kafka-producer</name>
+  <name>simple-store-kafka-producer</name>
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <spring.cloud.version>2021.0.0</spring.cloud.version>
+    <java.version>8</java.version>
   </properties>
 
   <dependencies>
@@ -35,8 +23,8 @@
     <dependency>
       <groupId>org.projectlombok</groupId>
       <artifactId>lombok</artifactId>
-      <version>RELEASE</version>
-      <scope>compile</scope>
+      <version>1.18.20</version>
+      <scope>provided</scope>
     </dependency>
     <dependency>
       <groupId>com.fasterxml.jackson.datatype</groupId>
@@ -62,4 +50,18 @@
       </dependency>
     </dependencies>
   </dependencyManagement>
+
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>3.10.1</version>
+        <configuration>
+          <source>${java.version}</source>
+          <target>${java.version}</target>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
 </project>

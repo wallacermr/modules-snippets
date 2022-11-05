@@ -1,13 +1,13 @@
 package br.com.wallace.rafael;
 
-import static org.junit.Assert.assertTrue;
-
 import org.junit.Test;
 
+import static org.junit.Assert.assertTrue;
+
 /**
- * Unit test for simple App.
+ * Unit test for simple SimpleStoreKafkaProducerApplication.
  */
-public class AppTest 
+public class SimpleStoreKafkaProducerApplicationTest
 {
     /**
      * Rigorous Test :-)
