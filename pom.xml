@@ -6,7 +6,8 @@
 
 	<modules>
 		<module>simple-store-kafka-producer</module>
-	</modules>
+        <module>simple-store-kafka-consumer</module>
+    </modules>
 
 	<parent>
 		<groupId>org.springframework.boot</groupId>
