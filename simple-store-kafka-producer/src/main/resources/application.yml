@@ -11,12 +11,14 @@ spring:
         ordersbuy-out-0:
           destination: orders_buy
           contentType: application/json
+          group: order-buy-simple-store
           producer:
             configuration:
               partitionCount: 1
         orderssell-out-0:
           destination: orders_sell
           contentType: application/json
+          group: order-sell-simple-store
           producer:
             configuration:
               partitionCount: 1
