@@ -5,6 +5,7 @@ import br.com.wallace.rafael.payload.OrderType;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.SerializationFeature;
 import lombok.extern.slf4j.Slf4j;
 import lombok.val;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,7 +33,7 @@ public class SimpleStoreKafkaProducerApplication implements CommandLineRunner {
     }
 
     private static final ObjectMapper mapper = new ObjectMapper()
-            .configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
+            .configure(SerializationFeature.FLUSH_AFTER_WRITE_VALUE, false);
 
     public static void main(String[] args) {
         SpringApplication.run(SimpleStoreKafkaProducerApplication.class, args);
