@@ -9,6 +9,8 @@ spring:
       bindings:
         receiveOrderBuy-in-0:
           destination: order_buy
+        receiveOrderSell-in-0:
+          destination: order_sell
       function:
-        definition: receiveOrderBuy
+        definition: receiveOrderBuy;receiveOrderSell
 

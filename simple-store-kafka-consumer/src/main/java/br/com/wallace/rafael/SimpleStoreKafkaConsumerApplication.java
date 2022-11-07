@@ -24,4 +24,12 @@ public class SimpleStoreKafkaConsumerApplication {
         };
     }
 
+    @Bean
+    public Consumer<Message<Order>> receiveOrderSell() {
+        return message -> {
+            val order = message.getPayload();
+            System.out.println(order);
+        };
+    }
+
 }
