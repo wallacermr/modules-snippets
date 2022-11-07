@@ -6,11 +6,38 @@ spring:
         binder:
           brokers: localhost:9092
           replicationFactor: 1
+        bindings:
+          receiveOrderBuy-in-0:
+            consumer:
+              startOffset: earliest
+#              enableDlq: true
+#              dlqName: order_buy-dlq
+              configuration:
+                max.poll.records: 10
+                max.poll.interval.ms: 200000
+          receiveOrderSell-in-0:
+            consumer:
+              startOffset: earliest
+#              enableDlq: true
+#              dlqName: order_sell-dlq
+              configuration:
+                max.poll.records: 10
+                max.poll.interval.ms: 200000
       bindings:
         receiveOrderBuy-in-0:
           destination: order_buy
+          content-type: application/json
+          group: store-service
+          consumer:
+            maxAttempts: 1
+            concurrency: 1
         receiveOrderSell-in-0:
           destination: order_sell
+          content-type: application/json
+          group: store-service
+          consumer:
+            maxAttempts: 1
+            concurrency: 1
       function:
         definition: receiveOrderBuy;receiveOrderSell
 
