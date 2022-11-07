@@ -10,7 +10,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>simple-store-kafka-producer</artifactId>
-    <name>simple-store-kafka-producer</name>
+    <artifactId>simple-store-kafka-consumer</artifactId>
+    <name>simple-store-kafka-consumer</name>
 
 </project>
