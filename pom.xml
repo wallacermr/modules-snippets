@@ -6,7 +6,6 @@
 
 	<modules>
 		<module>simple-store-kafka-producer</module>
-        <module>simple-store-kafka-consumer</module>
     </modules>
 
 	<parent>

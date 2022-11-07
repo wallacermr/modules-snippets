@@ -17,9 +17,7 @@ import org.springframework.messaging.MessageHeaders;
 import org.springframework.messaging.support.MessageBuilder;
 
 import java.time.LocalDate;
-import java.util.Arrays;
 import java.util.HashMap;
-import java.util.List;
 import java.util.UUID;
 
 @SpringBootApplication
@@ -40,29 +38,6 @@ public class SimpleStoreKafkaProducerApplication implements CommandLineRunner {
         SpringApplication.run(SimpleStoreKafkaProducerApplication.class, args);
     }
 
-    /**
-     * responsible for sending the quantity of products to replenish stock.
-     */
-    List<Order> buyOrders = Arrays.asList(
-            new Order(UUID.randomUUID().toString(), 1, LocalDate.now(), OrderType.BUY, 50),
-            new Order(UUID.randomUUID().toString(), 3, LocalDate.now(), OrderType.BUY, 50),
-            new Order(UUID.randomUUID().toString(), 4, LocalDate.now(), OrderType.BUY, 15),
-            new Order(UUID.randomUUID().toString(), 1, LocalDate.now(), OrderType.BUY, 2),
-            new Order(UUID.randomUUID().toString(), 2, LocalDate.now(), OrderType.BUY, 22),
-            new Order(UUID.randomUUID().toString(), 1, LocalDate.now(), OrderType.BUY, 7)
-    );
-
-    /**
-     * responsible for sending the quantity of products sold.
-     */
-    List<Order> sellOrders = Arrays.asList(
-            new Order(UUID.randomUUID().toString(), 2, LocalDate.now(), OrderType.SELL, 12),
-            new Order(UUID.randomUUID().toString(), 1, LocalDate.now(), OrderType.SELL, 23),
-            new Order(UUID.randomUUID().toString(), 3, LocalDate.now(), OrderType.SELL, 39),
-            new Order(UUID.randomUUID().toString(), 4, LocalDate.now(), OrderType.SELL, 3),
-            new Order(UUID.randomUUID().toString(), 1, LocalDate.now(), OrderType.SELL, 13)
-    );
-
     @Override
     public void run(String... args) throws Exception {
         sendOrders();
@@ -73,23 +48,20 @@ public class SimpleStoreKafkaProducerApplication implements CommandLineRunner {
         val map = new HashMap<String, Object>();
         map.put("service-origin", "simple-store-kafka-producer");
         val headers = new MessageHeaders(map);
-        Message<String> message = MessageBuilder
-                .createMessage(mapper.writeValueAsString(mountPayload(buyOrders)), headers);
+        val buyOrder =
+                new Order(UUID.randomUUID().toString(), 2, LocalDate.now(), OrderType.BUY, 134);
+        Message<String> message = MessageBuilder.createMessage(mapper.writeValueAsString(buyOrder), headers);
 
         log.info("[SimpleStoreKafkaProducerApplication] - Sending orders type: {}", OrderType.BUY);
         streamBridge.send("ordersbuy-out-0", message);
         log.info("[SimpleStoreKafkaProducerApplication] - Orders sended");
 
+        val sellOrder =
+                new Order(UUID.randomUUID().toString(), 1, LocalDate.now(), OrderType.SELL, 70);
         message = MessageBuilder
-                .createMessage(mapper.writeValueAsString(mountPayload(sellOrders)), headers);
+                .createMessage(mapper.writeValueAsString(sellOrder), headers);
         log.info("[SimpleStoreKafkaProducerApplication] - Sending orders type: {}", OrderType.SELL);
         streamBridge.send("orderssell-out-0", message);
         log.info("[SimpleStoreKafkaProducerApplication] - Orders sended");
-    }
-
-    private Message<List<Order>> mountPayload(List<Order> orders) {
-        return MessageBuilder
-                .withPayload(orders)
-                .build();
     }
 }
