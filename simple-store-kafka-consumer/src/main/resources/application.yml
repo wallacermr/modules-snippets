@@ -9,7 +9,7 @@ spring:
         bindings:
           receiveOrderBuy-in-0:
             consumer:
-              startOffset: earliest
+              startOffset: latest
 #              enableDlq: true
 #              dlqName: order_buy-dlq
               configuration:
@@ -17,7 +17,7 @@ spring:
                 max.poll.interval.ms: 200000
           receiveOrderSell-in-0:
             consumer:
-              startOffset: earliest
+              startOffset: latest
 #              enableDlq: true
 #              dlqName: order_sell-dlq
               configuration:
@@ -40,4 +40,3 @@ spring:
             concurrency: 1
       function:
         definition: receiveOrderBuy;receiveOrderSell
-
