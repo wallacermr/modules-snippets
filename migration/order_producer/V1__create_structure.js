@@ -1,0 +1,1 @@
+db.createCollection("order_sended");
