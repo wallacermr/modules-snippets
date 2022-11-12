@@ -1,1 +1,1 @@
-db.createCollection("order_sended");
+db.createCollection("order");
