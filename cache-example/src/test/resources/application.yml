@@ -1,0 +1,10 @@
+logging:
+  pattern:
+    console: "%d %highlight(%-5level) %magenta([%t]) %msg%n"
+
+spring:
+  jackson:
+    property-naming-strategy: SNAKE_CASE
+  data:
+    mongodb:
+      uri: mongodb://localhost:27333/testdb
