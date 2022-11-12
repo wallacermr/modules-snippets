@@ -27,7 +27,7 @@ public class CacheExampleApplication implements CommandLineRunner {
 
     @Override
     public void run(String... args) {
-        save();
+//        save();
 //        getOrders();
     }
 

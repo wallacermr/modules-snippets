@@ -1,7 +1,0 @@
-db.createCollection("users")
-
-db.users.insertOne({
-    name: 'mark',
-    birth_date: ISODate("2015-12-03T00:00:00.000Z"),
-    _class: 'br.com.wallace.rafael.document.User'
-})
