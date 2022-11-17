@@ -32,7 +32,8 @@
 		<module>simple-store-kafka-producer</module>
 		<module>simple-store-kafka-consumer</module>
         <module>cache-example</module>
-    </modules>
+		<module>auth-kong-gateway-example</module>
+	</modules>
 
 	<dependencies>
 		<dependency>
