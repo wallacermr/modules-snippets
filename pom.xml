@@ -33,7 +33,8 @@
 		<module>simple-store-kafka-consumer</module>
         <module>cache-example</module>
 		<module>auth-kong-gateway-example</module>
-	</modules>
+        <module>distributed-lock-example</module>
+    </modules>
 
 	<dependencies>
 		<dependency>

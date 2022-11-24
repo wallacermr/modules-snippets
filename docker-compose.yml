@@ -1,15 +1,26 @@
 version: '3.7'
 services:
-  mongo1.dev:
-    container_name: mongo1.dev
-    image: mongo:6.0.2
+#  mongo1.dev:
+#    container_name: mongo1.dev
+#    image: mongo:6.0.2
+#    restart: always
+#    networks:
+#      - study
+#    ports:
+#      - 27017:27017
+#    volumes:
+#      - mongodb_data:/data/db
+
+  redis.dev:
+    image: redis:alpine3.16
+    platform: linux/amd64
+    container_name: redis.dev
+    hostname: localhost
     restart: always
+    ports:
+    - 6379:6379
     networks:
       - study
-    ports:
-      - 27017:27017
-    volumes:
-      - mongodb_data:/data/db
 
 #  kafka-ui:
 #    container_name: kafka-ui
