@@ -34,6 +34,7 @@
         <module>cache-example</module>
 		<module>auth-kong-gateway-example</module>
         <module>distributed-lock-example</module>
+        <module>object-size</module>
     </modules>
 
 	<dependencies>
